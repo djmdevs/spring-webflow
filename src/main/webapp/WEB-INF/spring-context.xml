@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc     http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    
+    <!-- autodetect beans -->  
+    <context:annotation-config />
+    
+    <!--scan controller-->
+    <!--<context:component-scan base-package="mz.org.ra.core.custom.ldap"/>-->
+         
+    <!--===================================================================================================-->
+    <!--=					SPRING SECURITY CUSTOM-REQUEST-HANDLER CONFIGURATION SECTION				  =-->
+    <!--===================================================================================================-->
+    
+    <!--Defining InMemoryUserDetaisl from Remote Db-->
+    <bean id="inMemoryUserDetailsManager" class="mz.soicoframework.portal.security.authentication.CustomInMemorySimpleUserPortalAuthenticationManager"/>
+    
+    <!--Defining application handler's controller-->
+    <bean id="successHandler"   class="mz.soicoframework.portal.security.authentication.handler.PortalAuthenticationSuccessHandler"/>  
+    
+    <!--Defining failure bean controller-->
+    <bean id="failesureHandler" class="mz.soicoframework.portal.security.authentication.handler.PortalAuthenticationFailureHandler"/>
+    
+    <!--Defining logout bean controller-->
+    <bean id="logoutHandler"    class="mz.soicoframework.portal.security.authentication.handler.PortalLogoutSuccessHandler"/> 
+    
+    <!--creation events and listners-->
+    <!--<bean id="authBadCredEvent" class="mz.org.ra.core.event.LoadBadCredentialsEvent"/>-->
+
+</beans>

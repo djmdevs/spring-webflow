@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+    <!--<var name="loginCredentials" class="com.studytrails.tutorials.springwebflow.LoginCredentials"/>-->
+    <!--<secured attributes="hasRole('ROLE_USER')" />-->
+    <!--      
+    <view-state id="displayLoginView" model="loginCredencials">
+        <transition on="loginCredencialsEntered" to="performLoginAction"/>
+    </view-state>-->
+   
+    <view-state id="auth" view="login">
+        <transition on="Entrar" to="ind" />
+    </view-state>
+    
+    <view-state id="ind" view="index">
+        <!--<transition on="Entrar" to="index"/>-->
+    </view-state>
+    <!--used when have expressions to be evaluated-->
+<!--    <action-state id="loginAction">
+        <evaluate expression="customLogin.showLogin('Running test from web flow')"/>
+        <transition to="indexView"/>
+    </action-state>-->
+   
+<!--    <view-state id="displayLoginSuccessView" />
+    
+    <view-state id="displayLoginErrorView" />-->
+</flow>

@@ -1,0 +1,1 @@
+keytool -importcert -alias portalCERT -keystore cacerts.jks -file portalCERT/PORTAL_CETIFICATE.crt
