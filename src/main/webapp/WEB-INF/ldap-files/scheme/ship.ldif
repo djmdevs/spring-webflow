@@ -1,7 +1,0 @@
-dn: cn=HMS Victory,ou=ships,o=sevenSeas
-objectClass: top
-objectClass: ship
-cn: HMS Victory
-numberOfGuns: 104
-description: a ship of the line of the Royal Navy
-description: built between 1759 and 1765
