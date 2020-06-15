@@ -8,27 +8,12 @@
     
     <!-- autodetect beans -->  
     <context:annotation-config />
+    <context:component-scan base-package="mz.djm.wflow.fe.controller" />
+
+	<!-- importing datasource-->
+    <import resource="config/datasource-config.xml"/>
+    <!-- importing flows-->
+    <import resource="config/webflow-config.xml"/>
     
-    <!--scan controller-->
-    <!--<context:component-scan base-package="mz.org.ra.core.custom.ldap"/>-->
-         
-    <!--===================================================================================================-->
-    <!--=					SPRING SECURITY CUSTOM-REQUEST-HANDLER CONFIGURATION SECTION				  =-->
-    <!--===================================================================================================-->
-    
-    <!--Defining InMemoryUserDetaisl from Remote Db-->
-    <bean id="inMemoryUserDetailsManager" class="mz.soicoframework.portal.security.authentication.CustomInMemorySimpleUserPortalAuthenticationManager"/>
-    
-    <!--Defining application handler's controller-->
-    <bean id="successHandler"   class="mz.soicoframework.portal.security.authentication.handler.PortalAuthenticationSuccessHandler"/>  
-    
-    <!--Defining failure bean controller-->
-    <bean id="failesureHandler" class="mz.soicoframework.portal.security.authentication.handler.PortalAuthenticationFailureHandler"/>
-    
-    <!--Defining logout bean controller-->
-    <bean id="logoutHandler"    class="mz.soicoframework.portal.security.authentication.handler.PortalLogoutSuccessHandler"/> 
-    
-    <!--creation events and listners-->
-    <!--<bean id="authBadCredEvent" class="mz.org.ra.core.event.LoadBadCredentialsEvent"/>-->
 
 </beans>

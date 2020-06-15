@@ -17,30 +17,22 @@
         http://www.springframework.org/schema/util 		http://www.springframework.org/schema/util/spring-util.xsd
         http://www.springframework.org/schema/mvc 		http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<context:annotation-config />
     <mvc:annotation-driven/>    
-    <context:component-scan base-package="mz.djm.wflow.fe.controller" />
-    
-    <!--=================================================================-->
-    <!--					IMPORT RESOURCES CONFIGURATION SECTION				 -->
-    <!--=================================================================-->
-    
-    <import resource="spring-flow.xml"/>
-    <!--    <import resource="portal-context.xml"/>-->
-    
+     
     <!--=================================================================-->
     <!--					VIEW's CONFIGURATION SECTION				 -->
     <!--=================================================================-->
+    
     <!--generating view resolvers-->
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass"  value="org.springframework.web.servlet.view.JstlView" />
-        <property name="prefix"     value="/WEB-INF/jsp/" />
+        <property name="prefix"     value="/WEB-INF/views/jsp/" />
         <property name="suffix"     value=".jsp" />
     </bean> 
     
     <!--Configuring jasper-views-->
     <bean class="org.springframework.web.servlet.view.XmlViewResolver">
-        <property name="location" value="/WEB-INF/jasper-report.xml"/>
+        <property name="location" value="/WEB-INF/config/jasper-config.xml"/>
         <property name="order" value="3"/>
     </bean>
     
@@ -53,14 +45,5 @@
         <property name="maxUploadSize" value="100000" />
     </bean>
     
-    <!-- BEANS DEFINITION -->
-    <!-- Generic Interface DAO's dependencies -->
-    <bean name="autodao" class="mz.djm.sflow.fe.dao.AutomovelDAOImpl">
-        <constructor-arg name="htemplate" ref="htemplate" />
-    </bean>
-    
-     <bean name="fdao" class="mz.djm.sflow.fe.dao.FacturaDAOImpl">
-       <constructor-arg name="htemplate" ref="htemplate" />
-    </bean>
      
 </beans>
