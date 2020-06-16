@@ -10,20 +10,8 @@
         <transition on="loginCredencialsEntered" to="performLoginAction"/>
     </view-state>-->
    
-    <view-state id="auth" view="login">
-        <transition on="Entrar" to="ind" />
+    <view-state id="login" view="login">
+       
     </view-state>
     
-    <view-state id="ind" view="index">
-        <!--<transition on="Entrar" to="index"/>-->
-    </view-state>
-    <!--used when have expressions to be evaluated-->
-<!--    <action-state id="loginAction">
-        <evaluate expression="customLogin.showLogin('Running test from web flow')"/>
-        <transition to="indexView"/>
-    </action-state>-->
-   
-<!--    <view-state id="displayLoginSuccessView" />
-    
-    <view-state id="displayLoginErrorView" />-->
 </flow>

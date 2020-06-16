@@ -14,6 +14,7 @@ import mz.djm.sflow.fe.entity.UserEntity;
  *
  * @author Danilo Jo
  */
+
 @Repository
 public class UserDAO  extends GenericDAO<UserEntity, Long> implements IUserDAO{
 
