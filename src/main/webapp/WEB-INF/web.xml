@@ -77,10 +77,10 @@ id="WebApp_ID" version="3.0">
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 		
-	<!--Mapping DispatcherServlet -->
+	<!--Mapping DispatcherServlet <url-pattern>/app/*.do</url-pattern>-->
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>/app/*.do</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 
 	<!--Creating Faces Servlet Definition -->

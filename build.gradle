@@ -7,14 +7,16 @@
  */
 
 group 'mz.djm.sflow.fe'
-version '1.0-SNAPSHOT'
+
+version '1.1-SNAPSHOT'
 
 //Step0
+//apply plugin: 'com.bmuschko.tomcat-base' //no Tasks configured
+
 apply plugin: 'com.bmuschko.tomcat'
 
 //sourceCompatibility = 1.8
 //targetCompatibility = 1.8
-//mainClassName = 'mz.djm.sflow.fe.ws.TomcatBootStrap'
 
 //Step1 - Must buildscript must be in the first order
 buildscript {
@@ -28,12 +30,25 @@ buildscript {
         classpath 'com.bmuschko:gradle-tomcat-plugin:2.5'
         //classpath "gradle.plugin.jp.empressia:jp.empressia.gradle.plugin.glassfish:0.2.5"
     }
+    
+   // tomcatRunWar {
+    //httpPort = 8190
+	//}
+	
+	//run {
+  //  dependsOn copyNatives
+   // mainClassName = 'mz.djm.gis.tm.app.LoadMapApplication'
+	//}
 }
+
+//
 
 //plugins {
     // Apply the java-library plugin to add support for Java Library
     //id 'java-library'
     apply plugin: 'java-library' 
+    
+    apply plugin: 'application'
     
     //id 'war'
     apply plugin: 'war'
@@ -65,7 +80,7 @@ ext {
 	springVersion 	      = '5.0.15.RELEASE'
 	springwebflowVersion  = '2.5.1.RELEASE'
 	springsecurityVersion = '5.0.13.RELEASE'
-	tomcatVersion 		  = '8.0.27'	
+	tomcatVersion 		  = '8.0.42'	
  }
  
 dependencies {
@@ -75,14 +90,16 @@ dependencies {
 	//classpath "com.github.sahara3:gradle-tomcat-runner-plugin:0.2.1"    
     //classpath "gradle.plugin.jp.empressia:jp.empressia.gradle.plugin.glassfish:0.2.5"
     
-    //tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
-      //   "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
-        // "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+         "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+         "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
          
          
-    compile "org.apache.tomcat.embed:tomcat-embed-jasper:$tomcatVersion"
+    //compile "org.apache.tomcat.embed:tomcat-embed-jasper:$tomcatVersion"
     compile "org.apache.tomcat.embed:tomcat-embed-core:$tomcatVersion"
     compile "org.apache.tomcat.embed:tomcat-embed-logging-juli:$tomcatVersion"
+    compile "org.apache.tomcat:tomcat-servlet-api:${tomcatVersion}"
+    compile "org.apache.tomcat:tomcat-jsp-api:${tomcatVersion}"
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     api 'org.apache.commons:commons-math3:3.6.1'
 
@@ -158,12 +175,22 @@ dependencies {
 	compile fileTree (dir : "src/main/webapp/WEB-INF/lib", include: "*.jar")
 }
 
-//apply plugin: 'com.bmuschko.tomcat-base'
-
+//tomcat {
+  //  httpProtocol = 'org.apache.coyote.http11.Http11Nio2Protocol'
+    //ajpProtocol  = 'org.apache.coyote.ajp.AjpNio2Protocol'
+//}
 
 //Listing Jars on dir
 task displayJars {
 	println "${configurations.compile.collect {File f -> f.name}}"
 }
 
+run {
+  //  dependsOn copyNatives
+    mainClassName = 'mz.djm.sflow.fe.ws.TomcatBootStrap'
+}
+
+wrapper {
+    gradleVersion = '5.0'
+}
 

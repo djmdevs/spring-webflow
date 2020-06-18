@@ -8,14 +8,14 @@ import java.io.IOException;
 import org.apache.catalina.startup.Tomcat;
 
 public class TomcatBootStrap {
-
+	
     private static final int PORT = 8080;
 
     public static void main(String[] args) throws Exception {
 
         String appBase = ".";
 
-        Tomcat tomcat = new Tomcat();
+       Tomcat tomcat = new Tomcat();
 
         tomcat.setBaseDir(createTempDir());
 
