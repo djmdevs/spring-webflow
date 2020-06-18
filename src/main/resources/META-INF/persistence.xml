@@ -3,7 +3,7 @@
   <persistence-unit name="portalEntityPU" transaction-type="JTA">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <jta-data-source>jdbc/login</jta-data-source>
-    <class>mz.upg.entity.Department</class>
+    <class>mz.djm.sflow.fe.entity.UserEntity</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="eclipselink.target-database" value="MySQL"/>

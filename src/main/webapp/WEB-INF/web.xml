@@ -11,7 +11,7 @@ id="WebApp_ID" version="3.0">
 	</welcome-file-list>
 	
 	<!-- Java ServerFaces Views -->
-	<context-param>
+	<!-- <context-param>
 		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>
 		<param-value>.xhtml</param-value>
 	</context-param>
@@ -24,7 +24,7 @@ id="WebApp_ID" version="3.0">
 	<context-param>
 		<param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
 		<param-value>1</param-value>
-	</context-param>
+	</context-param> -->
 	
 	<!-- Spring ContextLoding , /WEB-INF/x-security.xml -->
 	<context-param>
@@ -53,18 +53,19 @@ id="WebApp_ID" version="3.0">
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
-	<!--Creating ResourceServlet Definition -->
-	<servlet>
-		<servlet-name>resources</servlet-name>
+	<!--Creating ResourceServlet Definition Deprecated-->
+	<!-- <servlet>
+		<servlet-name>resource</servlet-name>
 		<servlet-class>org.springframework.js.resource.ResourceServlet</servlet-class>
 		<load-on-startup>0</load-on-startup>
-	</servlet>
+	</servlet> -->
 	
-	<!--Mapping ResourceServlet -->
-	<servlet-mapping>
-		<servlet-name>resources</servlet-name>
+	<!--Mapping ResourceServlet Deprecated-->
+	<!-- <servlet-mapping>
+		<servlet-name>resource</servlet-name>
 		<url-pattern>/resources/*</url-pattern>
 	</servlet-mapping>
+	 -->
 	
 	<!--Creating DispatcherServlet Definition -->
 	<servlet>
@@ -80,21 +81,21 @@ id="WebApp_ID" version="3.0">
 	<!--Mapping DispatcherServlet <url-pattern>/app/*.do</url-pattern>-->
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>/*/*.do</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 
 	<!--Creating Faces Servlet Definition -->
-	<servlet>
+	<!-- <servlet>
 		<servlet-name>Faces Servlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
-	<!--Mapping Faces Servlet -->
+	Mapping Faces Servlet
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.jsf</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> -->
 	
 	
 	<!--Filter's -->
@@ -120,16 +121,16 @@ id="WebApp_ID" version="3.0">
 	</filter-mapping>
 	
 		<!--SpringSecurity Filter -->
-	<filter>
+	<!-- <filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
-	
+	 -->
 	<!--SpringSecurity Mapping Filter -->
-	<filter-mapping>
+	<!-- <filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/app/*</url-pattern>
-	</filter-mapping>
+	</filter-mapping> -->
 	
 	
 	<!--======================EJB programatic Configuration==================================== -->
