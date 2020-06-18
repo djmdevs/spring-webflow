@@ -36,17 +36,17 @@ id="WebApp_ID" version="3.0">
         </param-value>
 	</context-param>
 	
-	<!-- location of log4j config file -->
+	<!-- location of log4j config file 
 	<context-param>
 		<param-name>log4jConfigLocation</param-name>
 		<param-value>/WEB-INF/logs/log4j.properties</param-value>
 	</context-param>
+	-->
 	
-	
-	<!-- applies log4j configuration -->
+	<!-- applies log4j configuration 
 	<listener>
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-	</listener>
+	</listener> -->
 	
 	<!-- applies ContextLoader configuration -->
 	<listener>
@@ -55,14 +55,14 @@ id="WebApp_ID" version="3.0">
 	
 	<!--Creating ResourceServlet Definition -->
 	<servlet>
-		<servlet-name>Resources Servlet</servlet-name>
+		<servlet-name>resources</servlet-name>
 		<servlet-class>org.springframework.js.resource.ResourceServlet</servlet-class>
 		<load-on-startup>0</load-on-startup>
 	</servlet>
 	
 	<!--Mapping ResourceServlet -->
 	<servlet-mapping>
-		<servlet-name>Resources Servlet</servlet-name>
+		<servlet-name>resources</servlet-name>
 		<url-pattern>/resources/*</url-pattern>
 	</servlet-mapping>
 	
@@ -80,7 +80,7 @@ id="WebApp_ID" version="3.0">
 	<!--Mapping DispatcherServlet <url-pattern>/app/*.do</url-pattern>-->
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>*.do</url-pattern>
+		<url-pattern>/*/*.do</url-pattern>
 	</servlet-mapping>
 
 	<!--Creating Faces Servlet Definition -->

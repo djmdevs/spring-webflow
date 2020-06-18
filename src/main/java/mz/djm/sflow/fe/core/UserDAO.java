@@ -16,7 +16,7 @@ import mz.djm.sflow.fe.entity.UserEntity;
  */
 
 @Repository
-public class UserDAO  extends GenericDAO<UserEntity, Long> implements IUserDAO{
+public class UserDAO  extends AbstractGenericDAO<UserEntity, Long> implements IUserDAO{
 
     public UserDAO(HibernateTemplate htemplate) {
         super(htemplate);

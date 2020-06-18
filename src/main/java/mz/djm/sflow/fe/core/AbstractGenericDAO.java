@@ -23,15 +23,15 @@ import org.springframework.transaction.annotation.Transactional;
  * @param <ID>
  */
 @Repository
-public abstract class GenericDAO<T, ID extends Serializable> implements IGenericDAO<T, ID> {
+public abstract class AbstractGenericDAO<T, ID extends Serializable> implements IGenericDAO<T, ID> {
 
        
     private Session session;
-    private static Log LOG = LogFactory.getLog(GenericDAO.class);
+    private static Log LOG = LogFactory.getLog(AbstractGenericDAO.class);
     private final Class<T> persistentClass;
 
     @SuppressWarnings("unchecked")
-    public GenericDAO(HibernateTemplate htemplate) {
+    public AbstractGenericDAO(HibernateTemplate htemplate) {
         this.persistentClass = (Class<T>) ((ParameterizedType) getClass()
                 .getGenericSuperclass()).getActualTypeArguments()[0];
         
