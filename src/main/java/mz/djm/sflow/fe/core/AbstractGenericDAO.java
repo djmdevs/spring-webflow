@@ -17,11 +17,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- *
+ * TODO uc
  * @author Danilo Jo
  * @param <T>
  * @param <ID>
- */
+ */ 
 @Repository
 public abstract class AbstractGenericDAO<T, ID extends Serializable> implements IGenericDAO<T, ID> {
 

@@ -12,14 +12,16 @@
 	<context:component-scan base-package="mz.djm.sflow.fe.controller"/>
 	<mvc:annotation-driven/>
 
-	<!-- importing datasource-->
+	<!-- uc_008 - importing datasource-->
     <!-- <import resource="config/datasource-config.xml"/> -->
     
-    <!-- importing flows-->
+    <!-- uc_009 - importing flows-->
     <!-- <import resource="config/webflow-config.xml"/> -->
     
-	<!-- Definig resource order -->    
-    <mvc:resources location="classpath:jdbc.properties" mapping="/resources/props/*"  order="1"/>
+	<!-- uc_007 - Definig resource order -->    
+    <mvc:resources location="classpath:jdbc.properties" 	mapping="/resources/*"  order="1"/>
+    <mvc:resources location="classpath:message.properties" 	mapping="/resources/*"  order="2"/>
+     
     <mvc:status-controller status-code="404" path="/lgc/get.do"/>
     
     

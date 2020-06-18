@@ -37,6 +37,7 @@ public class LoginController {
 	@RequestMapping(value="/post", method = RequestMethod.POST)
 	public String doPost() {
 		
+		String post=null;
 		//error mode
 		logger.error("Authentcation Failed NullPointer", new Exception("Testing"));
 		
