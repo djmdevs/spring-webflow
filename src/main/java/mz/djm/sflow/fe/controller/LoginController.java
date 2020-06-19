@@ -20,7 +20,7 @@ public class LoginController {
 
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
-	@RequestMapping(value="/get")
+	@RequestMapping(value="/get", method = RequestMethod.GET)
 	public String doGet(ModelMap map, Model model) {
 		
 		//degub mode
