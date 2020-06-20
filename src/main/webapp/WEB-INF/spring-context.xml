@@ -6,24 +6,36 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc     http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-    
-
+	
 	<!-- autodetect beans -->
     <context:annotation-config/>
-	<context:component-scan base-package="mz.djm.sflow.fe.controller"/>
+    <context:component-scan base-package="mz.djm.sflow.fe.controller"/>
 	<mvc:annotation-driven/>
-
+	
 	<!-- uc_008 - importing datasource-->
     <!-- <import resource="config/datasource-config.xml"/> -->
     
     <!-- uc_009 - importing flows-->
     <!-- <import resource="config/webflow-config.xml"/> -->
     
-	<!-- uc_007 - Definig resource order -->    
-    <mvc:resources location="classpath:jdbc.properties" 	mapping="/resources/*"  order="1"/>
-    <mvc:resources location="classpath:message.properties" 	mapping="/resources/*"  order="2"/>
+    <!-- uc_011 - importing spring security-->
+    <!-- <import resource="config/spring-security-config.xml"/> -->
     
-    <!-- uc_010- blocking user access to specificy page -->
-    <!-- <mvc:status-controller status-code="404" path="/lgc/get.do"/> -->
-     
+    <!-- uc_007 - Definig resource order -->
+	<mvc:resources location="classpath:application.properties" 	mapping="/resources/*"  order="1"/>    
+    <mvc:resources location="classpath:jdbc.properties" 		mapping="/resources/*"  order="2"/>
+    <mvc:resources location="classpath:message.properties" 		mapping="/resources/*"  order="3"/>
+    
+    <!--uc_005 - used for file upload service -->
+    <!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="100000" />
+    </bean> -->
+
+     <!--uc_004 - generating view resolvers -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass"  value="org.springframework.web.servlet.view.JstlView" />
+        <property name="prefix"     value="/WEB-INF/views/jsp/" />
+        <property name="suffix"     value=".jsp" />
+    </bean> 
+   	    
 </beans>
