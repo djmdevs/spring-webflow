@@ -7,9 +7,8 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc     http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     
-    
 	<!-- uc_007 - Definig resource order -->    
-    <mvc:resources location="classpath:jdbc.properties" 	mapping="/resources/*"  order="1"/>
-    <mvc:resources location="classpath:message.properties" 	mapping="/resources/*"  order="2"/>
-      
+    <mvc:resources location="classpath:application.properties" 	mapping="/resources/*"  order="1"/>    
+    <mvc:resources location="classpath:jdbc.properties" 		mapping="/resources/*"  order="2"/>
+    <mvc:resources location="classpath:message.properties" 		mapping="/resources/*"  order="3"/>
 </beans>
