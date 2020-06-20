@@ -9,24 +9,8 @@
         http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <!--uc_004 - generating view resolvers-->
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass"  value="org.springframework.web.servlet.view.JstlView" />
-        <property name="prefix"     value="/WEB-INF/views/jsp/" />
-        <property name="suffix"     value=".jsp" />
-    </bean> 
+
+    <!-- load implicity servlets from dispatcher -->
     
-    <!--uc_006 - Configuring jasper-views-->
-    <bean class="org.springframework.web.servlet.view.XmlViewResolver">
-        <property name="location" value="/WEB-INF/config/jasper-config.xml"/>
-        <property name="order" value="3"/>
-    </bean> 
     
-    <!--uc_005 -->_
-    <!--used for file upload service-->  
-    <!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        setting maximum upload size
-        <property name="maxUploadSize" value="100000" />
-    </bean> -->
-     
 </beans>
