@@ -39,7 +39,7 @@
     </bean> 
     
     <!--uc_006 - configuring jasper views-->
-    <bean class="org.springframework.web.servlet.view.XmlViewResolver">
+    <bean id="jasperXmlView" class="org.springframework.web.servlet.view.XmlViewResolver">
         <property name="location" value="/WEB-INF/config/jasper-config.xml"/>
         <property name="order" value="3"/>
     </bean> 
