@@ -2,8 +2,10 @@
 .gradle
 .class
 .swp
+.settings/
+.classpath
 
 # Ignore Gradle build output directory
 build
-bin
+bin/
 classes
