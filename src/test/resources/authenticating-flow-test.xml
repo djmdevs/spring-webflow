@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+	<!-- step0 -->
+	<!-- <on-starte evaluete="" transaction=""/> -->
+
+	<!-- most used with Flow Output to MVC Flash Scope Flow output can be automatically 
+		saved to MVC flash scope when an end-state performs an internal redirect. 
+		This is particularly useful when displaying a summary screen at the end of 
+		a flow. For backwards compatibility t his feature is disabled by default, 
+		to enable set saveOutputToFlashScopeOnRedirect on your FlowHandlerAdapter 
+		to true -->
+
+	<!-- <end-state id="finish" view="externalRedirect:summary"> <output name="confirmationNumber" 
+		value="booking.confirmationNumber" /> </end-state> -->
+
+	<!--<on-entry> <set name="userSession" value="conversationScope.userSession"></set> 
+		</on-entry> -->
+
+	<!-- step1 -->
+	<view-state id="step0" view="/get.do">
+
+       <!--  first verification -->
+        <!-- <on-entry>
+            <evaluate expression="authenticationAction.checkAuthorizationState(msg,flowRequestContext)"></evaluate>
+        </on-entry> -->
+        
+		<!-- execute action logic -->
+		<transition on="submit" to="step1">
+			<evaluate expression="authenticationAction.step0(flowRequestContext)" />
+		</transition>
+
+	</view-state>
+
+    <!-- step2 called by Action-->
+	<view-state id="step1" view="login"/> 
+	
+	<!-- <end-state id="finish" /> -->
+
+</flow>
