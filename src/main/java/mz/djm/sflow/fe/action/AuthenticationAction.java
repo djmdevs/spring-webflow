@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.webflow.execution.RequestContext;
 
 import mz.djm.sflow.fe.entity.UserEntity;
-import mz.djm.sflow.fe.flow.AuthenticatingFlowExecutionTest;
 
 /**
  * 
