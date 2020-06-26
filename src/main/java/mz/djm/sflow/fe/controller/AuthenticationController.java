@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import mz.djm.sflow.fe.core.UserDAO;
+import mz.djm.sflow.fe.entity.UserEntity;
 
 /**
  * 
@@ -23,17 +24,27 @@ import mz.djm.sflow.fe.core.UserDAO;
 public class AuthenticationController {
 
 	private static final Logger logger = LoggerFactory.getLogger(AuthenticationController.class);
-
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	private UserEntity user;
+	
+	@RequestMapping(value = "/get", method = RequestMethod.GET)
 	public String doGet(ModelMap map) {
-
+		
+		//post message
+		String msg = (String) map.get("msg");
+		
 		// degub mode
-		logger.debug("PortalAuthentication Request");
+		//logger.debug("PortalAuthentication Request");
 
-		// sending message to specificy model
-		map.addAttribute("msg", "Success Loggin");
-
+		if(msg != null) {
+			
+			map.addAttribute("msg", msg);
+			
+			return "redirect:/get.do";
+			
+		}
+		
 		return "login";
+		
 	}
 
 	@RequestMapping(value = "/post", method = RequestMethod.POST)

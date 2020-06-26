@@ -12,5 +12,10 @@
 
     <!-- load implicity servlets from dispatcher -->
     
+    <!-- step3 - configuring executer on flowAdapter-->
+    <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+        <property name="flowExecutor" ref="flowExecutor" />
+        <property name="saveOutputToFlashScopeOnRedirect" value="true" />
+    </bean>
     
 </beans>
