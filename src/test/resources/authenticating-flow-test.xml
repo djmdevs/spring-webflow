@@ -18,25 +18,32 @@
 
 	<!--<on-entry> <set name="userSession" value="conversationScope.userSession"></set> 
 		</on-entry> -->
+		
+    <!-- <on-start>
+		<evaluate expression="authenticationAction.step0(flowRequestContext)" />
+	    <set name="authenticationAction" value="flowScope.authenticationAction"/>
+	</on-start>  -->
 
+<!--   =======================================VIEW-STATES============================================================================== --> 
+   
 	<!-- step1 -->
 	<view-state id="step0" view="/get.do">
-
+	
+	   <var name="authenticationAction" class="mz.djm.sflow.fe.action.AuthenticationAction"/>
        <!--  first verification -->
         <!-- <on-entry>
             <evaluate expression="authenticationAction.checkAuthorizationState(msg,flowRequestContext)"></evaluate>
-        </on-entry> -->
+        </on-entry>  -->
         
 		<!-- execute action logic -->
 		<transition on="submit" to="step1">
 			<evaluate expression="authenticationAction.step0(flowRequestContext)" />
 		</transition>
-
 	</view-state>
 
     <!-- step2 called by Action-->
-	<view-state id="step1" view="login"/> 
+	<view-state id="step1" view="/home.do"/> 
 	
-	<!-- <end-state id="finish" /> -->
+	<end-state id="finish" />
 
 </flow>
