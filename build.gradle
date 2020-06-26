@@ -126,6 +126,10 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
     
+    // Spring mock
+    testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+    testCompile group: 'org.springframework', name: 'spring-mock', version: '2.0.8'
+    
     //Servlet
 	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
     
@@ -188,7 +192,7 @@ dependencies {
 	
 	//Spring security taglibs
 	//compile group: 'org.springframework.security', name: 'spring-security-taglibs', version: '$springsecurityVersion'	
-    	compile "org.springframework.security:spring-security-taglibs:$springsecurityVersion"
+    compile "org.springframework.security:spring-security-taglibs:$springsecurityVersion"
     
 	//Adding a file dependece
 	compile fileTree (dir : "src/main/webapp/WEB-INF/lib", include: "*.jar")
