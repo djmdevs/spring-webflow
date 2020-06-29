@@ -104,7 +104,7 @@ public class AuthenticatingFlowExecutionTest extends AbstractGenericXmlFlowExecu
 		MutableAttributeMap<Object> input = new LocalAttributeMap<>();
 		input.put("userId", user.getId());
 		input.put("msg"   , "User Successful Login");
-		input.put("authenticationAction", authAction);
+		//input.put("authenticationAction", authAction);
 		
 		//mock context
 		MockExternalContext context = new MockExternalContext();
@@ -113,7 +113,7 @@ public class AuthenticatingFlowExecutionTest extends AbstractGenericXmlFlowExecu
 		assertNotNull(context);
 		
 		//set action into scope NOT ALLOWED
-		///this.getFlowScope().put("authenticationAction",authAction);
+		//this.getFlowScope().put("authenticationAction",authAction);
 		
 		//startFlow
 		this.startFlow(input, context);
@@ -131,6 +131,7 @@ public class AuthenticatingFlowExecutionTest extends AbstractGenericXmlFlowExecu
 	@Test
 	public void testOnPressButtonLogin(){
 		
+		
 		//1 - set the current state, to jump to specificy flow state
 		this.setCurrentState("step1");
 		
@@ -139,11 +140,12 @@ public class AuthenticatingFlowExecutionTest extends AbstractGenericXmlFlowExecu
 		//this.getFlowScope().put("msg", "User Successful Login");
 		
 		//2 - registrying flow definition
-		//this.getFlowDefinitionRegistry().registerFlowDefinition(this.createMockAuthenticationSubFlow());
+		this.getFlowDefinitionRegistry().registerFlowDefinition(this.createMockAuthenticationSubFlow());
 		
 		//mocking resume object from step1 to step3
 		MockExternalContext context = new MockExternalContext();
-		context.setEventId("step0");
+		context.setEventId("submit");
+		context.setContextPath("/j2web/Authentication/");
 		
 		//resume FLow - used when resume is necessary not now
 		//this.resumeFlow(context);
@@ -157,7 +159,7 @@ public class AuthenticatingFlowExecutionTest extends AbstractGenericXmlFlowExecu
 		 */
 		//assertFlowExecutionOutcomeEquals("finish");
 		
-		logger.debug("D");
+		logger.debug(""+this.getFlow().getApplicationContext());
 	}
 
 
@@ -167,7 +169,7 @@ public class AuthenticatingFlowExecutionTest extends AbstractGenericXmlFlowExecu
 	private Flow createMockAuthenticationSubFlow() {
 
 		//set flow
-		Flow mockLoginFlow = new Flow("login");
+		Flow mockLoginFlow = new Flow("authenticating-flow-test");
 		
 		mockLoginFlow.setInputMapper(new Mapper() {
 				
