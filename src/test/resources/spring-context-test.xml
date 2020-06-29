@@ -22,7 +22,7 @@
     <!-- <import resource="config/spring-security-config.xml"/> -->
     
     <!-- uc_007 - Definig resource order -->
-	<mvc:resources location="classpath:application.properties" 	mapping="/resources/*"  order="1"/>    
+	<!-- <mvc:resources location="classpath:application.properties" 	mapping="/resources/*"  order="1"/>     -->
     <mvc:resources location="classpath:jdbc.properties" 		mapping="/resources/*"  order="2"/>
     <mvc:resources location="classpath:message.properties" 		mapping="/resources/*"  order="3"/>
     

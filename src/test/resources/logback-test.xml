@@ -12,16 +12,30 @@
 		<appender-ref ref="STDOUT" />
 	</logger>
 
+    <logger name="org.springframework.webflow" level="debug" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    
     <!-- controller unit-test -->
 	<logger name="mz.djm.sflow.fe.controller" level="debug" additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
 
-    <!-- core unit-test -->
-    <!-- <logger name="mz.djm.sflow.fe.core" level="debug" additivity="false">
+    <!-- flow unit-test -->
+    <logger name="mz.djm.sflow.fe.flow" level="debug" additivity="false">
         <appender-ref ref="STDOUT" />
     </logger>
-     -->
+    
+    <!-- core unit-test -->
+    <logger name="mz.djm.sflow.fe.core" level="debug" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+  
+    <!-- action unit-test -->
+    <logger name="mz.djm.sflow.fe.action" level="debug" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    
 	
 	<root level="error">
 		<appender-ref ref="STDOUT" />

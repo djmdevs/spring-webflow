@@ -26,10 +26,11 @@
 
 <!--   =======================================VIEW-STATES============================================================================== --> 
    
+    <var name="authenticationAction" class="mz.djm.sflow.fe.action.AuthenticationAction"/>
+	
 	<!-- step1 -->
 	<view-state id="step0" view="/get.do">
-	
-	   <var name="authenticationAction" class="mz.djm.sflow.fe.action.AuthenticationAction"/>
+
        <!--  first verification -->
         <!-- <on-entry>
             <evaluate expression="authenticationAction.checkAuthorizationState(msg,flowRequestContext)"></evaluate>
@@ -38,6 +39,7 @@
 		<!-- execute action logic -->
 		<transition on="submit" to="step1">
 			<evaluate expression="authenticationAction.step0(flowRequestContext)" />
+			<evaluate expression="authenticationAction.checkAuthorizationState(msg,flowRequestContext)"/>
 		</transition>
 	</view-state>
 
