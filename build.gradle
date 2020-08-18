@@ -124,12 +124,13 @@ dependencies {
     implementation 'com.google.guava:guava:26.0-jre'
 
     // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
-    
+    //testImplementation 'junit:junit:4.12'
+    compile group: 'junit', name: 'junit', version: '4.12'
+                    ''
     // Spring mock
     testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
     testCompile group: 'org.springframework', name: 'spring-mock', version: '2.0.8'
-    
+     
     //Servlet
 	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
     
@@ -151,7 +152,6 @@ dependencies {
 	//Spring MVC Section
 	//compile group: 'org.springframework', name: 'spring-webmvc', version: '$springVersion.RELEASE'
 	 compile "org.springframework:spring-webmvc:$springVersion"
-	
 	
 	//Spring webflow Section
 	compile "org.springframework.webflow:spring-webflow:$springwebflowVersion"
